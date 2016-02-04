@@ -1,0 +1,5 @@
+*.*
+doc
+!greep.java
+!README.txt
+!.gitignore
