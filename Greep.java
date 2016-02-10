@@ -27,68 +27,73 @@ public class Greep extends Creature
     {
         super(ship);
     }
+      
     
-   public void follsowSpit(){
-       
-    }
-    
-
     /**
      * Do what a greep's gotta do.
      */
     public void act()
     {
         super.act();
-        if (isAtEdge() || atWater()) { 
-            turn(Greenfoot.getRandomNumber(45) + 45); 
-        } 
-        if (carryingTomato()) {
-            if(atShip()) {
-                dropTomato();
+        
+            if (isAtEdge() || atWater()) { 
+                turn(Greenfoot.getRandomNumber(45) + 45); 
+            } 
+            if (carryingTomato()) {
+                if(atShip()) {
+                    dropTomato();
+                    turn(180);
+                }
+                else {
+                    move();
+                   aroundCrap();
+                }
             }
             else {
                 move();
-                if(randomChance(50)){
-                    turnHome();
-                }
+                checkFood();
+                stopatPile();
             }
-        }
-        else {
-            spit("red");
-            move();
-            checkFood();
-        
-        }
+            
     }
-
-    /**
-     * Is there any food here where we are? If so, try to load some!
-     */
+ 
+    
+    
     public void checkFood()
     {
         // check whether there's a tomato pile here
         TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
-       
-        
         if(tomatoes != null) {
             loadTomato();
+            spit("purple");
+        }
+    } 
+    
+    public void stopatPile(){
+        if(seePaint("purple")){
+            move();
             
         }
     }
-  
-
-
+    public void aroundCrap(){ //Made into method
+         if(randomChance(50)){
+                    turnHome();
+                }
+    }
+    
+    public void StopGreeps(){
+        TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
+        
+            
+            
+        }
+    
     
     public static String getAuthorName()
     {
-        return "Michael Tirone";  // write your name here!
+        return "Michael Tironey";  // write your name here!
     }
-
-
-    /**
-     * This method specifies the image we want displayed at any time. (No need 
-     * to change this for the competition.)
-     */
+    
     public String getCurrentImage()
     {
         if(carryingTomato())
