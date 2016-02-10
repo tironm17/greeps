@@ -68,6 +68,11 @@ public class Greep extends Creature
             spit("purple");
         }
     } 
+    public void stopatPile(){
+        if(!seePaint("purple")){
+            move();
+        }
+    }
     
     
     public void aroundCrap(){ //Made into method
