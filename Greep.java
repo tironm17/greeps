@@ -50,8 +50,8 @@ public class Greep extends Creature
                 }
             }
             else {
-                move();
-                checkFood();
+                
+                checkFood(); 
                 stopatPile();
             }
             
@@ -69,12 +69,7 @@ public class Greep extends Creature
         }
     } 
     
-    public void stopatPile(){
-        if(seePaint("purple")){
-            move();
-            
-        }
-    }
+    
     public void aroundCrap(){ //Made into method
          if(randomChance(50)){
                     turnHome();
