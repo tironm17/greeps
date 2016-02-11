@@ -27,16 +27,12 @@ public class Greep extends Creature
     {
         super(ship);
     }
-      
-    
-    /**
-     * Do what a greep's gotta do.
-     */
+     
     public void act()
     {
         super.act();
         
-            if (isAtEdge() || atWater()) { 
+        if (isAtEdge() || atWater()) { 
                 turn(Greenfoot.getRandomNumber(45) + 45); 
             } 
             if (carryingTomato()) {
@@ -45,7 +41,6 @@ public class Greep extends Creature
                     turn(180);
                 }
                 else {
-                    move();
                    aroundCrap();
                 }
             }
@@ -54,11 +49,8 @@ public class Greep extends Creature
                 checkFood(); 
                 stopatPile();
             }
-            
     }
  
-    
-    
     public void checkFood()
     {
         // check whether there's a tomato pile here
@@ -68,27 +60,19 @@ public class Greep extends Creature
             spit("purple");
         }
     } 
+    
     public void stopatPile(){
         if(!seePaint("purple")){
             move();
         }
     }
     
-    
     public void aroundCrap(){ //Made into method
          if(randomChance(50)){
                     turnHome();
                 }
     }
-    
-    public void StopGreeps(){
-        TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
-        
-            
-            
-        }
-    
-    
+          
     public static String getAuthorName()
     {
         return "Michael Tironey";  // write your name here!
