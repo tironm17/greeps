@@ -41,6 +41,7 @@ public class Greep extends Creature
                     turn(180);
                 }
                 else {
+                   move();
                    aroundCrap();
                 }
             }
