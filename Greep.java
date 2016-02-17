@@ -8,21 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
  */
 public class Greep extends Creature
 {
-    // Remember: you cannot extend the Greep's memory. So:
-    // no additional fields (other than final fields) allowed in this class!
-    //test
-    /**
-     * Default constructor for testing purposes.
-     */
+   
+ 
     public Greep()
     {
         this(null);
     }
 
-    
-    /**
-     * Create a Greep with its home space ship.
-     */
     public Greep(Ship ship)
     {
         super(ship);
@@ -33,7 +25,8 @@ public class Greep extends Creature
         super.act();
         
         if (isAtEdge() || atWater()) { 
-                turn(Greenfoot.getRandomNumber(45) + 45); 
+                turn(Greenfoot.getRandomNumber(45) + 45);
+                move(10);
             } 
             if (carryingTomato()) {
                 if(atShip()) {
@@ -63,7 +56,7 @@ public class Greep extends Creature
     } 
     
     public void stopatPile(){
-        if(!seePaint("purple")){
+        if(!seePaint("purple")){ //if it doesnt see paint doesnt move
             move();
         }
     }
@@ -76,7 +69,7 @@ public class Greep extends Creature
           
     public static String getAuthorName()
     {
-        return "Michael Tironey";  // write your name here!
+        return "DAYO DAYO MIKE ";  // write your name here!
     }
     
     public String getCurrentImage()
