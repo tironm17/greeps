@@ -26,7 +26,6 @@ public class Greep extends Creature
         
         if (isAtEdge() || atWater()) { 
                 turn(Greenfoot.getRandomNumber(45) + 45);
-                move(10);
             } 
             if (carryingTomato()) {
                 if(atShip()) {
@@ -59,6 +58,8 @@ public class Greep extends Creature
         if(!seePaint("purple")){ //if it doesnt see paint doesnt move
             move();
         }
+        else
+            TomatoPile.getX && TomatoPile.getY
     }
     
     public void aroundCrap(){ //Made into method
