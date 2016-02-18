@@ -39,28 +39,34 @@ public class Greep extends Creature
             }
             else {
                
-                checkFood(); 
+                checkFood();
                 stopatPile();
+                
             }
     }
-    public void totheCenter()
-    {
-        turnTowards(getOneIntersectingObject(TomatoPile.class).getX(),getOneIntersectingObject(TomatoPile.class).getY());
-        
-    }
+    
     public void checkFood()
     {
         // c heck whether there's a tomato pile here
         TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
         if(tomatoes != null) {
-            loadTomato();
             spit("purple");
+            loadTomato();
             totheCenter();
-        }
+                
+            }
+        
+        
     
     }
+    public void totheCenter()
+    {
+        turnTowards(getOneIntersectingObject(TomatoPile.class).getX(),getOneIntersectingObject(TomatoPile.class).getY());
+       
+    }
+    
     public void stopatPile(){
-        if(!seePaint("purple")){ //if it doesnt see paint doesnt move
+        if(!seePaint("purple")){ //if it see paint doesnt move
             move();
         }
      
