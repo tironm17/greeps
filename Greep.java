@@ -70,7 +70,7 @@ public class Greep extends Creature
     }
     public void follow() {
            if(seePaint("red")){
-               move();
+              move();
             }
         
     }
