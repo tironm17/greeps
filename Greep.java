@@ -50,13 +50,10 @@ public class Greep extends Creature
         // c heck whether there's a tomato pile here
         TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
         if(tomatoes != null) {
-            spit("purple");
             loadTomato();
             totheCenter();
-                
+            move();
             }
-        
-        
     
     }
     public void totheCenter()
