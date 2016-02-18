@@ -24,7 +24,7 @@ public class Greep extends Creature
     {
         super.act();
         if (isAtEdge() || atWater()) { 
-                turn(Greenfoot.getRandomNumber(45) + 40);
+                turn(Greenfoot.getRandomNumber(45) + 45);
             } 
             if (carryingTomato()) {
                 if(atShip()) {
@@ -34,11 +34,14 @@ public class Greep extends Creature
                 else {
                    move();
                    aroundCrap();
+                   spit("red");
                 }
             }
             else {
                 checkFood();
+                
                 stopatPile();
+                follow();
             }
     }
     
@@ -55,17 +58,22 @@ public class Greep extends Creature
     }
     public void totheCenter() //turn torwards the center
     {
-        turnTowards(getOneIntersectingObject(TomatoPile.class).getX(),getOneIntersectingObject(TomatoPile.class).getY());
+       turnTowards(getOneIntersectingObject(TomatoPile.class).getX(),getOneIntersectingObject(TomatoPile.class).getY());//X and Y coordinates
        move();
     }
     
-    public void stopatPile(){
+    public void stopatPile(){ //only one stops at pile
         if(!seePaint("purple")){ //if it see paint doesnt move
             move();
         }
      
     }
-    
+    public void follow() {
+           if(seePaint("red")){
+               move();
+            }
+        
+    }
     public void aroundCrap(){ //Made into method
          if(randomChance(50)){
                     turnHome();
